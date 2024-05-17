@@ -58,8 +58,6 @@ function initializePage(){
         genreHtml.appendChild(element)
     }
     
-    selectAndOrAppend('[data-search-genres]', genreHtml)
-    
     const authorsHtml = document.createDocumentFragment()
     const firstAuthorElement = document.createElement('option')
     firstAuthorElement.value = 'any'
@@ -72,8 +70,6 @@ function initializePage(){
         element.innerText = name
         authorsHtml.appendChild(element)
     }
-    
-    selectAndOrAppend('[data-search-authors]', authorsHtml)
     
     selectAndOrAppend('[data-list-button]', null).innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
     selectAndOrAppend('[data-list-button]', null).disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0
@@ -93,6 +89,9 @@ function initializePage(){
     }
     
     window.onload = function() {
+    
+        selectAndOrAppend('[data-search-genres]', genreHtml)
+        selectAndOrAppend('[data-search-authors]', authorsHtml)
         addEventListeners();
     }
 }
@@ -107,10 +106,6 @@ function addEventListeners(){
         selectAndOrAppend('[data-settings-overlay]', null).open = false
     })
     
-    // document.body.firstElementChild.querySelector('[data-header-search]').addEventListener('click', () => {
-    //         selectAndOrAppend('[data-search-overlay]', null).open = true 
-    //         selectAndOrAppend('[data-search-title]', null).focus()
-    //     })
     selectAndOrAppend('[data-header-search]', null).addEventListener('click', () => {
         selectAndOrAppend('[data-search-overlay]', null).open = true 
         selectAndOrAppend('[data-search-title]', null).focus()

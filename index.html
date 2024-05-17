@@ -30,6 +30,7 @@
     <script type="module" src="./data.js"></script>
     <script src="components/header.js" type="text/javascript" defer></script>
     <script src="components/bookPreview.js" type="text/javascript" defer></script>
+    <script src="components/bookSearch.js" type="text/javascript" defer></script>
   </head>
   <body>
 
@@ -45,32 +46,7 @@
     <book-preview-component></book-preview-component>
 
 
-    <dialog class="overlay" data-search-overlay>
-      <div class="overlay__content">
-        <form class="overlay__form" data-search-form id="search">
-          <label class="overlay__field">
-            <div class="overlay__label">Title</div>
-            <input class="overlay__input" data-search-title name="title" placeholder="Any"></input>
-          </label>
-
-          <label class="overlay__field">
-            <div class="overlay__label">Genre</div>
-            <select class="overlay__input overlay__input_select" data-search-genres name="genre"></select>
-          </label>
-
-          <label class="overlay__field">
-            <div class="overlay__label">Author</div>
-            <select class="overlay__input overlay__input_select" data-search-authors name="author">
-            </select>
-          </label>
-        </form>
-
-        <div class="overlay__row">
-          <button class="overlay__button" data-search-cancel>Cancel</button>
-          <button class="overlay__button overlay__button_primary" type="submit" form="search">Search</button>
-        </div>
-      </div>
-    </dialog>
+    <book-search-component></book-search-component>
 
     <dialog class="overlay" data-settings-overlay>
       <div class="overlay__content">
