@@ -1,10 +1,14 @@
 
 
+// Custom element class for the header
 class Header extends HTMLElement {
     constructor() {
-      super();
+        super(); // Call the parent class's constructor
     }
+
+    // Lifecycle method called when the element is added to the document
     connectedCallback() {
+        // Set the inner HTML of this element to contain the header
         this.innerHTML = `
         <header class="header">
           <div class="header__inner">
@@ -67,4 +71,5 @@ class Header extends HTMLElement {
     }
   }
   
+// Define the custom element
   customElements.define('header-component', Header);

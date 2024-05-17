@@ -43,7 +43,6 @@ function initializePage(){
         starting.appendChild(element)
     }
     
-    selectAndOrAppend('[data-list-items]', starting)
 
     const genreHtml = document.createDocumentFragment()
     const firstGenreElement = document.createElement('option')
@@ -71,13 +70,6 @@ function initializePage(){
         authorsHtml.appendChild(element)
     }
     
-    selectAndOrAppend('[data-list-button]', null).innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
-    selectAndOrAppend('[data-list-button]', null).disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0
-    
-    selectAndOrAppend('[data-list-button]', null).innerHTML = `
-        <span>Show more</span>
-        <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
-    `
 
     if (theme === 'night') {
         document.querySelector('[data-settings-theme]').value = 'night';
@@ -90,6 +82,14 @@ function initializePage(){
     
     window.onload = function() {
     
+        selectAndOrAppend('[data-list-items]', starting)
+        selectAndOrAppend('[data-list-button]', null).innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
+        selectAndOrAppend('[data-list-button]', null).disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0
+        
+        selectAndOrAppend('[data-list-button]', null).innerHTML = `
+            <span>Show more</span>
+            <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
+        `
         selectAndOrAppend('[data-search-genres]', genreHtml)
         selectAndOrAppend('[data-search-authors]', authorsHtml)
         addEventListeners();
