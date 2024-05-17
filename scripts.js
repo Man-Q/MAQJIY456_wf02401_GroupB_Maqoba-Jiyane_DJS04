@@ -91,8 +91,10 @@ function initializePage(){
         document.documentElement.style.setProperty('--color-dark', '10, 10, 20');
         document.documentElement.style.setProperty('--color-light', '255, 255, 255');
     }
-
-    addEventListeners();
+    
+    window.onload = function() {
+        addEventListeners();
+    }
 }
 
 function addEventListeners(){
@@ -105,6 +107,10 @@ function addEventListeners(){
         selectAndOrAppend('[data-settings-overlay]', null).open = false
     })
     
+    // document.body.firstElementChild.querySelector('[data-header-search]').addEventListener('click', () => {
+    //         selectAndOrAppend('[data-search-overlay]', null).open = true 
+    //         selectAndOrAppend('[data-search-title]', null).focus()
+    //     })
     selectAndOrAppend('[data-header-search]', null).addEventListener('click', () => {
         selectAndOrAppend('[data-search-overlay]', null).open = true 
         selectAndOrAppend('[data-search-title]', null).focus()
