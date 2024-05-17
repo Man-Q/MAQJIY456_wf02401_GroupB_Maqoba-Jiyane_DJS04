@@ -1,6 +1,6 @@
 
 
-// Define a custom HTML element for the book search dialog
+// Define a custom HTML element for the not found message
 class NotFound extends HTMLElement {
     constructor() {
         super();
@@ -8,7 +8,7 @@ class NotFound extends HTMLElement {
 
     // Invoked when the element is added to the document's DOM
     connectedCallback() {
-        // Set the inner HTML for the search dialog
+        // Set the inner HTML for the not found message
         this.innerHTML = `
         <main class="list">
         <div class="list__items" data-list-items></div>
